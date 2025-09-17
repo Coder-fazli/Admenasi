@@ -187,7 +187,6 @@ if( ! class_exists( 'TIELABS_AJAX' ) ) {
 			define( 'TIE_IS_ARCHIVE', true );
 
 			// General
-			$max_pages   = sanitize_title( wp_unslash( $_REQUEST['max'] ) );
 			$layout      = sanitize_title( wp_unslash( $_REQUEST['layout'] ) );
 			$latest_post = ! empty( $_REQUEST['latest_post'] ) ? sanitize_title( wp_unslash( $_REQUEST['latest_post'] ) ) : 0;
 

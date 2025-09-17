@@ -25,7 +25,6 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 		<?php do_action( 'TieLabs/before_wrapper' ); ?>
 
 		<div id="tie-wrapper">
-
 			<?php
 
 				TIELABS_HELPER::get_template_part( 'templates/header/load' );

@@ -649,6 +649,13 @@ function tie_get_share_buttons_options( $share_position = '' ){
 
 	tie_build_theme_option(
 		array(
+			'name' => esc_html__( 'Flipboard', TIELABS_TEXTDOMAIN ),
+			'id'   => 'share_flipboard'.$position,
+			'type' => 'checkbox',
+		));
+
+	tie_build_theme_option(
+		array(
 			'name' => esc_html__( 'Skype', TIELABS_TEXTDOMAIN ),
 			'id'   => 'share_skype'.$position,
 			'type' => 'checkbox',

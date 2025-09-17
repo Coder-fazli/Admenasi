@@ -491,9 +491,7 @@ class TIELABS_FILTERS {
 		$raw_excerpt = $text;
 
 		if ( '' == $text ){
-
-			//$text = get_the_content( '' ); // Causes issues with the new Posts List Blocks
-
+			
 			$_post = get_post();
 			$text = ! empty( $_post->post_content ) ? $_post->post_content : '';
 			$text = apply_filters( 'TieLabs/exclude_content', $text );
@@ -826,7 +824,7 @@ class TIELABS_FILTERS {
 		
 		if( ! tie_get_token() && ! tie_is_auto_loaded_post() && ! empty( $_SERVER['SERVER_NAME'] ) && strpos( $_SERVER['SERVER_NAME'], 'tielabs.com' ) === false && $_SERVER['SERVER_NAME'] != 'localhost'  ){
 			?>
-				<div class="theme-notice" style="z-index:9999999!important;position:fixed!important;width:100%!important;bottom:0!important;display:block!important;text-align:center;background:#f44336!important;color:#fff!important;"><a style="color: #fff; text-decoration: underline;" href="<?php echo tie_get_purchase_link( array( 'utm_source' => 'footer-bar' ) ); ?>">Jannah Theme</a> License is not validated, Go to the theme options page to validate the license, You need a single license for each domain name.</div>
+				<div class="theme-notice" style="z-index:9999999!important;position:fixed!important;width:100%!important;bottom:0!important;display:block!important;text-align:center;background:#f44336!important;color:#fff!important;visibility:visible!important;height:auto!important;"><a style="color: #fff; text-decoration: underline;" href="<?php echo tie_get_purchase_link( array( 'utm_source' => 'footer-bar' ) ); ?>">Jannah Theme</a> License is not validated, Go to the theme options page to validate the license, You need a single license for each domain name.</div>
 			<?php
 		}
 	}

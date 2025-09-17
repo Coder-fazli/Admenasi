@@ -295,7 +295,7 @@ if( ! class_exists( 'TIELABS_NOTICES' ) ){
 				}
 				else{
 
-					if( ( time() - get_option( $install_date ) ) < ( 5 * DAY_IN_SECONDS ) ){
+					if( ( time() - (int)get_option( $install_date ) ) < ( 5 * DAY_IN_SECONDS ) ){
 						return false;
 					}
 

@@ -1257,6 +1257,12 @@ if( ! function_exists( 'tie_get_share_buttons' ) ) {
 				'icon' => 'tie-icon-get-pocket',
 			),
 
+			'flipboard' => array(
+				'url'  => 'https://share.flipboard.com/bookmarklet/popout?url={post_link}',
+				'text' => esc_html__( 'Flipboard', TIELABS_TEXTDOMAIN ),
+				'icon' => 'tie-icon-flipboard',
+			),
+
 			'skype' => array(
 				'url'   => 'https://web.skype.com/share?url={post_link}&text={post_title}',
 				'text'  => esc_html__( 'Skype', TIELABS_TEXTDOMAIN ),

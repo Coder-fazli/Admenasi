@@ -350,11 +350,9 @@ function jannah_enqueue_styles(){
  add_filter( 'TieLabs/Demo_Importer/demos_data', 'jannah_demo_importer_data' );
  function jannah_demo_importer_data( $demos_data = false ){
 
- 	if( ! empty( $demos_data ) ){
+ 	if( ! empty( $demos_data ) || tie_get_token() ){
  		return $demos_data;
  	}
-
- 	// Allow fallback demos even with token to enable demo import
 
  	// --
 	$demos = array(

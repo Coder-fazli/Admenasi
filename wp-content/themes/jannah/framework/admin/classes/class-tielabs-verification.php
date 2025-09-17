@@ -17,7 +17,7 @@ if( ! class_exists( 'TIELABS_VERIFICATION' ) ){
 		 * Runs on class initialization. Adds filters and actions.
 		 */
 		function __construct() {
-			// License verification completely disabled - theme will work independently
+			add_action( 'admin_enqueue_scripts', array( $this, 'load_notices' ) );
 		}
 
 

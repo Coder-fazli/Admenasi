@@ -1027,6 +1027,9 @@
 .share-links a.pocket-share-btn, .share-links a.pocket-share-btn:before {
   background: #ef4056;
 }
+.share-links a.flipboard-share-btn, .share-links a.flipboard-share-btn:before {
+  background: #f52828;
+}
 .share-links a.skype-share-btn, .share-links a.skype-share-btn:before {
   background: #00aff0;
 }

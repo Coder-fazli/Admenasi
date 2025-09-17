@@ -19,7 +19,7 @@ if ( version_compare( phpversion(), '5.3', '<' ) ) {
  */
 define( 'TIELABS_THEME_SLUG', 'jannah' );
 define( 'TIELABS_TEXTDOMAIN', 'jannah' );
-define( 'TIELABS_DB_VERSION', '7.5.1' );    // Don't change this
+define( 'TIELABS_DB_VERSION', '7.6.0' );    // Don't change this
 define( 'TIELABS_THEME_ID',   '19659555' ); // Don't change this
 
 define( 'TIELABS_TEMPLATE_PATH',            get_template_directory() );

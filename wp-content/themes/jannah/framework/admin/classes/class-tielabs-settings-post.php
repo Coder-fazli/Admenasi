@@ -161,9 +161,10 @@ if( ! class_exists( 'TIELABS_SETTINGS_POST' ) ) {
 			<?php
 
 			// Required for the saving action.
-			if( tie_get_option( 'posts_advanced_options_admin' ) ){
-				echo '<input type="hidden" name="tie_hidden_flag" value="true" />';
-			}
+			/*if( tie_get_option( 'posts_advanced_options_admin' ) ){
+				*echo '<input type="hidden" name="tie_hidden_flag" value="true" />';
+			}*/
+			
 		}
 
 

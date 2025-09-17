@@ -20,10 +20,15 @@ if( ! class_exists( 'TIELABS_THEME_UPDATER' ) ){
 		 * Class constructor where we will call our filter and action hooks.
 		 */
 		function __construct( ) {
-			// THEME UPDATER DISABLED - No external connections for updates
-			// add_filter( 'pre_set_site_transient_update_themes', array( $this, 'check_for_update' ) );
-			// add_action( 'admin_menu', array( $this, 'update_notifier_menu' ), 11 );
-			// add_action( 'TieLabs/after_theme_data_update', array( $this, 'update_cached_data' ) );
+
+			// we moved the new_update_available inside the methods to avoid loading it in the ajax requests
+
+			// Filters
+			add_filter( 'pre_set_site_transient_update_themes', array( $this, 'check_for_update' ) );
+
+			// Actions
+			add_action( 'admin_menu', array( $this, 'update_notifier_menu' ), 11 );
+			add_action( 'TieLabs/after_theme_data_update', array( $this, 'update_cached_data' ) );
 		}
 
 

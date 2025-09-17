@@ -1198,6 +1198,13 @@
 		}
 	}
 
+	a.flipboard-share-btn{
+		&,
+		&:before{
+			background: $flipboard-color;
+		}
+	}
+
 	a.skype-share-btn{
 		&,
 		&:before{

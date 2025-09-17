@@ -124,9 +124,6 @@ if( ! class_exists( 'TIELABS_DEMO_IMPORTER' ) ) {
 		 */
 		public function get_files(){
 
-			// DEBUG: Check if filter is being called at all
-			error_log('DEMO DEBUG: get_files() filter function called!');
-
 			if( ! class_exists( 'Parsedown' ) ) {
 				require TIELABS_TEMPLATE_PATH . '/framework/vendor/Parsedown/parsedown.php';
 			}
@@ -134,9 +131,6 @@ if( ! class_exists( 'TIELABS_DEMO_IMPORTER' ) ) {
 			$Parsedown   = new Parsedown();
 			$demos_data  = apply_filters( 'TieLabs/Demo_Importer/demos_data', tie_get_latest_theme_data( 'demos' ) );
 			$theme_demos = array();
-
-			// DEBUG: Let's see what we're getting
-			error_log('DEMO DEBUG: get_files called, demos_data count: ' . (is_array($demos_data) ? count($demos_data) : 'not array'));
 			
 			//exit;
 			$i = 0;
@@ -158,9 +152,6 @@ if( ! class_exists( 'TIELABS_DEMO_IMPORTER' ) ) {
 					);
 				}
 			}
-
-			// DEBUG: Let's see what we're returning
-			error_log('DEMO DEBUG: returning ' . count($theme_demos) . ' demos');
 
 			return $theme_demos;
 		}
@@ -189,10 +180,9 @@ if( ! class_exists( 'TIELABS_DEMO_IMPORTER' ) ) {
 		 */
 		 public function demo_page_setup( $settings ){
 
-			// White label demos option bypassed - always show demos
-			//if( tie_get_option( 'white_label_demos' ) ){
-			//	return false;
-			//}
+			if( tie_get_option( 'white_label_demos' ) ){
+				return false;
+			}
 			
 			$notification = '';
 			$demos_count = tie_get_demos_count();

@@ -1828,10 +1828,6 @@ if( ! function_exists( 'jannah_get_custom_styling' ) ) {
 					overflow: hidden;
 				}
 
-				.web-stories-list-block.is-carousel .web-stories-list__story:not(.glider-slide){
-					visibility: hidden;
-				}
-
 				.is-view-type-list .web-stories-list__inner-wrapper{
 					display: flex;
 					flex-wrap: wrap;

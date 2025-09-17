@@ -40,8 +40,10 @@ if( ! function_exists( 'tie_get_option' ) ) {
  * Get The License Token
  */
 function tie_get_token(){
-	// Always return a valid token to enable demo import and premium features
-	return 'demo_enabled_token_123';
+
+	if( $token = get_option( 'tie_token_'.TIELABS_THEME_ID ) ){
+		return $token;
+	}
 }
 
 

@@ -3005,3 +3005,7 @@ p.order-again .button:after {
 .wc-block-components-review-list-item__rating > .wc-block-components-review-list-item__rating__stars span:before {
   content: "\f005\f005\f005\f005\f005" !important;
 }
+
+.alignwide.wp-block-woocommerce-cart {
+  margin: 0;
+}

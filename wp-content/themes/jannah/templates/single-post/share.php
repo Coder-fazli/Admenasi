@@ -112,7 +112,7 @@ if( tie_get_postdata( 'tie_hide_share_'.$share_position ) == 'no' ||
 			$custom_button_class .= ' '. $button['id'] .'-share-btn';
 		}
 
-		if( tie_get_option( 'share_'.$network_id.$button_position ) ){
+		if( tie_get_option( 'share_'.$network_id.$button_position ) || apply_filters( 'TieLabs/force_share_'.$network_id.$button_position, false ) ){
 
 			$counter ++;
 

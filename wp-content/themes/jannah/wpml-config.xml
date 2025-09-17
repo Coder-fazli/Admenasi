@@ -25,6 +25,7 @@
 			<key name="author_read_more_text" />
 			<key name="search_read_more_text" />
 			<key name="compact_comments_title" />
+			<key name="sidebar_pos" />
 			<key name="social">
 				<key name="facebook" />
 				<key name="twitter" />

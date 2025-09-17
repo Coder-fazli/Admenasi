@@ -918,39 +918,6 @@ function tie_save_user_profile_custom_options( $user_id ){
 /*-----------------------------------------------------------------------------------*/
 function tie_get_latest_theme_data( $key = '', $token = false, $force_update = false, $update_files = false, $revoke = false ){
 
-	// LICENSE VERIFICATION COMPLETELY BYPASSED - Always return validation success
-
-	// Special case for version check - always return valid version
-	if( $key === 'version' ) {
-		return '7.5.1';
-	}
-
-	// Return fake validation data to satisfy theme requirements
-	$fake_data = array(
-		'status' => 1,
-		'version' => '7.5.1',
-		'rating' => 5,
-		'support_status' => 'active',
-		'support_expiry' => date('Y-m-d H:i:s', strtotime('+1 year')),
-		'human_date' => date('F j, Y', strtotime('+1 year')),
-		'expiring' => false,
-		'error' => '',
-		'plugins' => array()
-		// Removed custom demos - now using theme's built-in fallback system
-	);
-
-	if( !empty($key) ) {
-		if( $key === 'demos' ) {
-			// Let the theme's filter system handle demos
-			return false;
-		}
-		return isset($fake_data[$key]) ? $fake_data[$key] : true;
-	}
-
-	return $fake_data;
-
-	// ORIGINAL CODE DISABLED BELOW
-	/*
 	// Check the current user role
 	if( ! function_exists( 'current_user_can' ) || ( function_exists( 'current_user_can' ) && ! current_user_can( 'manage_options' ) ) ){
 		return false;
@@ -1188,31 +1155,6 @@ function tie_get_latest_theme_data( $key = '', $token = false, $force_update = f
 	}
 
 	return $cached_data;
-	*/
-}
-
-
-/*-----------------------------------------------------------------------------------*/
-# Fake Token Function - Always return valid token for license bypass
-/*-----------------------------------------------------------------------------------*/
-add_filter('pre_option_tie_token_'.TIELABS_THEME_ID, function($value) {
-	return 'fake_valid_token_bypass';
-});
-
-// Remove token error option
-add_filter('pre_option_tie_token_error_'.TIELABS_THEME_ID, function($value) {
-	return false;
-});
-
-// Always return support info as active - only define if doesn't exist
-if (!function_exists('tie_get_support_period_info')) {
-	function tie_get_support_period_info() {
-		return array(
-			'status' => 'active',
-			'expiring' => false,
-			'human_date' => date('F j, Y', strtotime('+1 year'))
-		);
-	}
 }
 
 
@@ -1287,6 +1229,42 @@ function tie_theme_pages_screen_data() {
 }
 
 
+/**
+ * Get the theme's support period info
+ */
+function tie_get_support_period_info(){
+
+	$support_info    = array();
+	$today_date      = time();
+	$supported_until = tie_get_latest_theme_data( 'supported_until' );
+	$supported_until = strtotime( $supported_until );
+	$support_time    = date( 'F j, Y', $supported_until );
+
+	// The support is active
+	if( $supported_until >= $today_date ){
+
+		$support_info['status'] = 'active';
+
+		// Check if it less than 2 months
+		$diff = (int) abs( $supported_until - $today_date );
+
+		if( $diff < 2 * MONTH_IN_SECONDS ){
+			$support_info['expiring'] = true;
+		}
+
+		// Get the date and the remaning period
+		$support_time .= ' ('. human_time_diff( $supported_until ) .')';
+	}
+
+	// Opps it is expired
+	else{
+		$support_info['status'] = 'expired';
+	}
+
+	$support_info['human_date'] = $support_time;
+
+	return $support_info;
+}
 
 
 /**
