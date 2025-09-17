@@ -177,7 +177,11 @@ class PT_One_Click_Demo_Import {
 
 			do_action( 'TieLabs/Demos/after_page_title' );
 
-			// License verification bypassed - demos are always available
+			if( ! tie_get_token() ){
+				TIELABS_VERIFICATION::authorize_notice( false );
+			}
+
+			//else{
 
 
 		// Start output buffer for displaying the plugin intro text.
@@ -207,39 +211,7 @@ class PT_One_Click_Demo_Import {
 		?>
 
 
-		<?php
-		// DEBUG: Check import files
-		error_log('DEMO DEBUG: import_files check - count: ' . (is_array($this->import_files) ? count($this->import_files) : 'not array or empty'));
-
-		// CUSTOM TEST SECTION - Let's try to get demos directly
-		echo '<h3 style="color: red;">CUSTOM TEST - Direct Demo Data Check</h3>';
-		$test_demos = tie_get_latest_theme_data('demos');
-		if (is_array($test_demos) && !empty($test_demos)) {
-			echo '<div style="border: 2px solid red; padding: 20px; margin: 20px 0;">';
-			echo '<h4>SUCCESS! Found ' . count($test_demos) . ' demos in our data:</h4>';
-			echo '<div class="theme-browser tie-demo-importer rendered">';
-			foreach ($test_demos as $index => $demo) {
-				echo '<div class="theme" style="display: inline-block; margin: 10px; border: 1px solid #ccc; padding: 10px;">';
-				echo '<div class="theme-screenshot">';
-				echo '<img src="' . esc_attr($demo['img']) . '" style="width: 200px; height: 150px; object-fit: cover;">';
-				echo '<h4>' . esc_html($demo['name']) . '</h4>';
-				echo '<p>' . esc_html($demo['desc']) . '</p>';
-				echo '</div>';
-				echo '</div>';
-			}
-			echo '</div>';
-			echo '</div>';
-		} else {
-			echo '<div style="border: 2px solid red; padding: 20px; margin: 20px 0; color: red;">';
-			echo '<h4>ERROR: No demos found in tie_get_latest_theme_data</h4>';
-			echo '<p>Demo data type: ' . gettype($test_demos) . '</p>';
-			echo '<p>Demo data: ' . print_r($test_demos, true) . '</p>';
-			echo '</div>';
-		}
-
-
-		if ( ! empty ( $this->import_files ) ) :
-		?>
+		<?php if ( ! empty ( $this->import_files ) ) : ?>
 
 		<h3><?php esc_html_e( 'Available Demos', TIELABS_TEXTDOMAIN ) ?></h3>
 
@@ -384,8 +356,11 @@ class PT_One_Click_Demo_Import {
 
 						<?php
 
-							// License verification bypassed - import functionality always available
-							{
+							if( ! tie_get_token() ){
+								TIELABS_VERIFICATION::authorize_notice( false );
+							}
+
+							else{
 													
 								// Uninstall
 								if( get_option( TIELABS_THEME_SLUG .'_history' ) ){
