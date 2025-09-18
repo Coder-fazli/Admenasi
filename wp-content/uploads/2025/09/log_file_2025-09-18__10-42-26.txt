@@ -1,0 +1,33 @@
+
+---Downloaded files---
+The import files for: School were successfully downloaded!
+MAX EXECUTION TIME = 480
+Files info:
+Site URL = https://admenasi.com
+Data file = /home/u813921520/domains/admenasi.com/public_html/wp-content/uploads/2025/09/demo-content-import-file_2025-09-18__10-42-26.xml
+Widget file = not defined!
+Customizer file = not defined!
+
+---Debugging---
+Begin to import the media files from the XML
+
+------
+Completed AJAX call number: 1
+
+
+---Debugging---
+Begin to import the media files from the XML
+
+---Importing content---
+
+MAX EXECUTION TIME = 900
+MEMORY LIMIT = 3072M
+
+---Debugging---
+After importing the media files from the XML
+
+---pt-ocdi/before_widgets_import---
+
+
+---Completed---
+The Demo has been imported in 50.296524047852econds.
