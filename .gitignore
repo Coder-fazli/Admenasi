@@ -1,0 +1,12 @@
+# Ignore large backup files
+*.zip
+publick_html/
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
