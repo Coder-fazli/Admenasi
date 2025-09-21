@@ -29,14 +29,14 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 
 				TIELABS_HELPER::get_template_part( 'templates/header/load' );
 
-				// Custom Search Bar
+				// Custom Search Bar with Inline Styles
 				?>
-				<div class="custom-search-container">
-					<div class="search-box">
-						<form role="search" method="get" action="<?php echo home_url(); ?>">
-							<input type="text" class="search-input" name="s" placeholder="Start Looking For Something!" value="<?php echo get_search_query(); ?>">
-							<button type="submit" class="search-btn">
-								<i class="fas fa-search"></i>
+				<div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 40px 20px; display: flex; justify-content: center; align-items: center; width: 100%; border: 2px solid red; min-height: 100px; margin: 0 auto; clear: both; text-align: center; box-sizing: border-box;">
+					<div style="position: relative; background: linear-gradient(45deg, #cd595a, #e67e22); height: 60px; border-radius: 50px; padding: 10px; display: flex; align-items: center; box-shadow: 0 8px 25px rgba(205, 89, 90, 0.3); max-width: 1000px; width: 90%; min-width: 600px; margin: 0 auto; box-sizing: border-box;">
+						<form role="search" method="get" action="<?php echo home_url(); ?>" style="display: flex; align-items: center; width: 100%; margin: 0;">
+							<input type="text" name="s" placeholder="Start Looking For Something!" value="<?php echo get_search_query(); ?>" style="outline: none; border: none; background: none; width: 700px; padding: 0 30px; color: #fff; font-size: 20px; line-height: 60px; height: 60px; font-weight: 500; letter-spacing: 0.5px; flex: 1; box-sizing: border-box;">
+							<button type="submit" style="color: #fff; width: 60px; height: 60px; border-radius: 50px; background: linear-gradient(45deg, #e67e22, #f39c12); display: flex; justify-content: center; align-items: center; border: none; cursor: pointer; margin-left: auto; font-size: 20px; position: relative; overflow: hidden; box-sizing: border-box;">
+								🔍
 							</button>
 						</form>
 					</div>
