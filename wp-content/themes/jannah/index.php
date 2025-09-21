@@ -8,6 +8,12 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 
 get_header(); ?>
 
+	<!-- TEST ERROR BANNER - REMOVE AFTER TESTING -->
+	<div style="background: red; color: white; text-align: center; padding: 20px; font-size: 24px; font-weight: bold; border: 5px solid yellow;">
+		🚨 JANNAH THEME TEST - DEPLOYMENT WORKING! 🚨<br>
+		Changes are being deployed to Jannah theme successfully!
+	</div>
+
 	<div <?php tie_content_column_attr(); ?>>
 
 		<?php if ( have_posts() ) :

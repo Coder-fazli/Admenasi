@@ -10,8 +10,13 @@ wp-config-sample.php
 /wp-content/uploads/
 !/wp-content/uploads/index.php
 
-# Jannah theme settings and cache
+# Jannah theme settings and cache (but allow header.php, index.php, and style.css)
 /wp-content/themes/jannah/
+!/wp-content/themes/jannah/header.php
+!/wp-content/themes/jannah/index.php
+!/wp-content/themes/jannah/assets/
+!/wp-content/themes/jannah/assets/css/
+!/wp-content/themes/jannah/assets/css/style.css
 /wp-content/cache/
 /wp-content/backup-db/
 /wp-content/advanced-cache.php
