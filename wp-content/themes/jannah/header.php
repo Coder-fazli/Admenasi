@@ -34,7 +34,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 				<div class="search-container" style="text-align: center; padding: 30px 0; width: 100%;">
 					<div class="search-box" style="background: #fe676d; height: 80px; border-radius: 50px; padding: 15px; width: 800px; max-width: 90%; margin: 0 auto; display: inline-flex; align-items: center; position: relative; box-shadow: 0 8px 16px rgba(254, 103, 109, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.1);">
 						<form role="search" method="get" action="<?php echo home_url(); ?>" style="display: flex; align-items: center; width: 100%; margin: 0;">
-							<input type="text" class="search-input" id="typewriter-input" name="s" placeholder="" value="<?php echo get_search_query(); ?>" style="outline: none; border: none; background: rgba(255, 255, 255, 0.1); width: 500px; padding: 0 20px; color: #ffffff !important; font-size: 18px; transition: .3s; line-height: 80px; height: 80px; border-radius: 40px;">
+							<input type="text" class="search-input" id="typewriter-input" name="s" placeholder="" value="<?php echo get_search_query(); ?>" style="outline: none; border: none; background: rgba(255, 255, 255, 0.1); width: 500px; padding: 0 20px; color: #ffffff !important; font-size: 18px; font-weight: 600; transition: .3s; line-height: 80px; height: 80px; border-radius: 40px;">
 							<button type="submit" class="search-btn" style="color: #fff; width: 60px; height: 60px; border-radius: 50px; background: #fe676d; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: .3s; border: none; cursor: pointer; margin-left: auto; box-shadow: 0 4px 8px rgba(254, 103, 109, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2); font-size: 18px;">
 								<i class="fas fa-search"></i>
 							</button>
@@ -47,6 +47,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 				.search-container .search-input::placeholder {
 					color: #fff !important;
 					opacity: 0.9;
+					font-weight: 600 !important;
 				}
 				.search-container .search-input:focus {
 					background: rgba(255, 255, 255, 0.2) !important;
@@ -81,6 +82,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 						width: 300px !important;
 						background: rgba(255, 255, 255, 0.1) !important;
 						font-size: 16px !important;
+						font-weight: 600 !important;
 						height: 60px !important;
 						line-height: 60px !important;
 						padding: 0 15px !important;
@@ -113,6 +115,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 						width: 220px !important;
 						background: rgba(255, 255, 255, 0.1) !important;
 						font-size: 14px !important;
+						font-weight: 600 !important;
 						height: 50px !important;
 						line-height: 50px !important;
 						padding: 0 12px !important;
@@ -144,7 +147,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 							if (isTyping && index < text.length) {
 								input.setAttribute('placeholder', text.substring(0, index + 1));
 								index++;
-								setTimeout(typeWriter, 150); // Slow typing - 150ms per character
+								setTimeout(typeWriter, 100); // Faster typing - 100ms per character
 							} else if (isTyping && index >= text.length) {
 								// Pause at end for 2 seconds, then start erasing
 								setTimeout(function() {
