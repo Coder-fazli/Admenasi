@@ -29,4 +29,18 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 
 				TIELABS_HELPER::get_template_part( 'templates/header/load' );
 
+				// Custom Search Bar
+				?>
+				<div class="custom-search-container">
+					<div class="search-box">
+						<form role="search" method="get" action="<?php echo home_url(); ?>">
+							<input type="text" class="search-input" name="s" placeholder="Start Looking For Something!" value="<?php echo get_search_query(); ?>">
+							<button type="submit" class="search-btn">
+								<i class="fas fa-search"></i>
+							</button>
+						</form>
+					</div>
+				</div>
+				<?php
+
 				do_action( 'TieLabs/before_main_content' );
