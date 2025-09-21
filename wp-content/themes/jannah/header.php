@@ -30,7 +30,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 				TIELABS_HELPER::get_template_part( 'templates/header/load' );
 
 				// Custom Search Bar - Only on Home Page
-				<?php if (is_home() || is_front_page()) : ?>
+				if (is_home() || is_front_page()) : ?>
 				<div class="search-container" style="text-align: center; padding: 30px 0; width: 100%;">
 					<div class="search-box" style="background: #fe676d; height: 80px; border-radius: 50px; padding: 15px; width: 800px; max-width: 90%; margin: 0 auto; display: inline-flex; align-items: center; position: relative; box-shadow: 0 8px 16px rgba(254, 103, 109, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.1);">
 						<form role="search" method="get" action="<?php echo home_url(); ?>" style="display: flex; align-items: center; width: 100%; margin: 0;">
