@@ -1,12 +1,66 @@
-# Ignore large backup files
-*.zip
-publick_html/
+# WordPress core files
+wp-config.php
+wp-config-sample.php
 
-# Ignore temporary files
+# Plugin files and directories
+/wp-content/plugins/
+!/wp-content/plugins/index.php
+
+# Upload files
+/wp-content/uploads/
+!/wp-content/uploads/index.php
+
+# Jannah theme settings and cache
+/wp-content/themes/jannah/
+/wp-content/cache/
+/wp-content/backup-db/
+/wp-content/advanced-cache.php
+/wp-content/wp-cache-config.php
+
+# Various backup and temp files
 *.tmp
-*.temp
-*.log
+*.backup
+*.bak
+*.swp
+*.swo
+*~
 
-# Ignore system files
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node modules (if any)
+node_modules/
+npm-debug.log*
+
+# Composer
+/vendor/
+
+# Log files
+*.log
+/wp-content/debug.log
+error_log
+
+# Database exports
+*.sql
+*.mysql
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Deployment files
+deploy.php
+deployer.phar

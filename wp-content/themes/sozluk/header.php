@@ -81,6 +81,18 @@
         </div>
     </header>
 
+    <!-- Custom Search Bar -->
+    <div class="custom-search-container">
+        <div class="search-box">
+            <form role="search" method="get" action="<?php echo home_url(); ?>">
+                <input type="text" class="search-input" name="s" placeholder="Start Looking For Something!" value="<?php echo get_search_query(); ?>">
+                <button type="submit" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- site search -->
     <div class="site-search">
         <span class="toggle-search"><i class="icon-cancel"></i></span>
