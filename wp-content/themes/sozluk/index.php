@@ -1,5 +1,11 @@
 <?php get_header(); ?>
 
+    <!-- TEST ERROR BANNER - REMOVE AFTER TESTING -->
+    <div style="background: red; color: white; text-align: center; padding: 20px; font-size: 24px; font-weight: bold; border: 5px solid yellow;">
+        🚨 TEST ERROR - DEPLOYMENT WORKING! 🚨<br>
+        Changes are being deployed successfully!
+    </div>
+
     <div class="wrap">
         <main id="main" class="site-main no-page-numbers">
             <div id="primary" class="content-area flex-grid masonry cols-3 break-2-split-2-1" data-thumbnail="uncropped" data-posts="15" data-style="default">
