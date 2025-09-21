@@ -29,43 +29,39 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 
 				TIELABS_HELPER::get_template_part( 'templates/header/load' );
 
-				// Custom Search Bar - Your Original Design (Fixed)
+				// Custom Search Bar - Your Original Design (Fixed Text & Icon)
 				?>
-				<div style="text-align: center; padding: 30px 0; width: 100%; background: #f5f5f5;">
-					<div style="background: #cd595a; height: 40px; border-radius: 50px; padding: 10px; width: 800px; margin: 0 auto; display: inline-flex; align-items: center;">
+				<div style="text-align: center; padding: 30px 0; width: 100%;">
+					<div class="search-box" style="background: #cd595a; height: 40px; border-radius: 50px; padding: 10px; width: 800px; margin: 0 auto; display: inline-flex; align-items: center; position: relative;">
 						<form role="search" method="get" action="<?php echo home_url(); ?>" style="display: flex; align-items: center; width: 100%; margin: 0;">
-							<input type="text" name="s" placeholder="Start Looking For Something!" value="<?php echo get_search_query(); ?>" style="outline: none; border: none; background: none; width: 480px; padding: 0 6px; color: #fff; font-size: 16px; transition: .3s; line-height: 40px; height: 40px;">
-							<button type="submit" style="color: #fff; width: 40px; height: 40px; border-radius: 50px; background: #cd595a; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: .3s; border: none; cursor: pointer; margin-left: auto;">
-								🔍
+							<input type="text" class="search-input" name="s" placeholder="Start Looking For Something!" value="<?php echo get_search_query(); ?>" style="outline: none; border: none; background: none; width: 240px; padding: 0 6px; color: #ffffff !important; font-size: 16px; transition: .3s; line-height: 40px; height: 40px;">
+							<button type="submit" class="search-btn" style="color: #fff; width: 40px; height: 40px; border-radius: 50px; background: #cd595a; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: .3s; border: none; cursor: pointer; margin-left: auto;">
+								<i class="fas fa-search"></i>
 							</button>
 						</form>
 					</div>
 				</div>
-				<script>
-				document.addEventListener('DOMContentLoaded', function() {
-					var searchBox = document.querySelector('div[style*="cd595a"][style*="800px"]');
-					var searchInput = searchBox.querySelector('input');
-					var searchBtn = searchBox.querySelector('button');
 
-					searchBox.addEventListener('mouseenter', function() {
-						searchInput.style.width = '600px';
-						searchBtn.style.background = '#fff';
-						searchBtn.style.color = '#cd595a';
-					});
-
-					searchBox.addEventListener('mouseleave', function() {
-						searchInput.style.width = '480px';
-						searchBtn.style.background = '#cd595a';
-						searchBtn.style.color = '#fff';
-					});
-
-					searchInput.addEventListener('focus', function() {
-						searchInput.style.width = '600px';
-						searchBtn.style.background = '#fff';
-						searchBtn.style.color = '#cd595a';
-					});
-				});
-				</script>
+				<style>
+				.search-input::placeholder {
+					color: #dbc5b0 !important;
+				}
+				.search-input:focus,
+				.search-input:not(:placeholder-shown) {
+					width: 240px !important;
+					padding: 0 6px !important;
+				}
+				.search-box:hover .search-input {
+					width: 240px !important;
+					padding: 0 6px !important;
+				}
+				.search-box:hover .search-btn,
+				.search-input:focus + .search-btn,
+				.search-input:not(:placeholder-shown) + .search-btn {
+					background: #fff !important;
+					color: #cd595a !important;
+				}
+				</style>
 				<?php
 
 				do_action( 'TieLabs/before_main_content' );
